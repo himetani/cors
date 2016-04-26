@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title> Non CORS restriction App</title>
+    </head>
+    <body>
+        <h1>Non CORS restriction App</h1>   
+
+        <p>Go to information page</p>
+        <button onclick="post()">post</button>
+
+        <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <script>
+            var post = function() {
+                $.ajax({
+                    method: "POST",
+                    url: "/search",
+                    data: { 'key': JSON.stringify([{ key: 'value' }]) },
+                    success: function(data) {
+                        window.location.href = data;
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>
